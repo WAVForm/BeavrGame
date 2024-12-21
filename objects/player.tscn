@@ -23,3 +23,8 @@ texture = SubResource("PlaceholderTexture2D_wx6e2")
 position = Vector2(64, 32)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_6pgpc")
+
+[node name="interaction_ray" type="RayCast2D" parent="."]
+position = Vector2(64, 32)
+target_position = Vector2(128, 0)
+hit_from_inside = true

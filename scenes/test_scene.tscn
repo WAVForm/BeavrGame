@@ -12,12 +12,12 @@ size = Vector2(1152, 80)
 
 [node name="player" parent="." instance=ExtResource("1_35u52")]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="floor" type="StaticBody2D" parent="."]
 position = Vector2(576, 616)
 
-[node name="floor" type="Sprite2D" parent="StaticBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="floor"]
 scale = Vector2(1.92, 1)
 texture = SubResource("PlaceholderTexture2D_t2cpa")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
 shape = SubResource("RectangleShape2D_onyd5")

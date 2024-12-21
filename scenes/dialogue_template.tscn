@@ -55,3 +55,7 @@ text = "This is some text that I want to display"
 fit_content = true
 scroll_active = false
 scroll_following = true
+
+[node name="doubleclick_timer" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
