@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6ql8rp4uqwm2"]
+
+[ext_resource type="Script" path="res://scripts/interactables/hidingplace.gd" id="1_d4opo"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_cy4vd"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8103h"]
+size = Vector2(64, 64)
+
+[node name="hiding_place" type="Sprite2D"]
+texture = SubResource("PlaceholderTexture2D_cy4vd")
+
+[node name="interaction_area" type="Area2D" parent="."]
+collision_layer = 32768
+collision_mask = 0
+script = ExtResource("1_d4opo")
+
+[node name="interaction_range" type="CollisionShape2D" parent="interaction_area"]
+shape = SubResource("RectangleShape2D_8103h")

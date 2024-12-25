@@ -58,6 +58,10 @@ interact={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_16="Interaction/Interactable"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

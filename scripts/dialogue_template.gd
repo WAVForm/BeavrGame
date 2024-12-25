@@ -14,14 +14,13 @@ var texts: Array[String]
 
 signal done
 
-@export var fade_time := 1.0
+@export var fade_time := 0.5
 @export var speedup_multiplier := 2.0
 
 func _ready():
 	visual.modulate.a = 0.0 #blank
 	text.modulate.a = 0.0 #blank
 	text_content.visible_ratio = 0
-	start(["first", "second", "third", "fourth"], PlaceholderTexture2D.new())
 
 func start(texts_p:Array[String], image_p:Texture2D):
 	texts = texts_p
