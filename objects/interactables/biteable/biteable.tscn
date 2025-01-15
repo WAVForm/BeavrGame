@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxe0raafct837"]
+
+[ext_resource type="Script" path="res://scripts/interactables/biteable/biteable.gd" id="1_w1say"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_l8214"]
+size = Vector2(64, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eh30u"]
+size = Vector2(64, 64)
+
+[node name="bitable" type="Sprite2D"]
+texture = SubResource("PlaceholderTexture2D_l8214")
+
+[node name="biting_area" type="Area2D" parent="."]
+collision_layer = 32768
+collision_mask = 0
+script = ExtResource("1_w1say")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="biting_area"]
+shape = SubResource("RectangleShape2D_eh30u")

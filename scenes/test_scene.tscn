@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctiuxgpto60ef"]
+[gd_scene load_steps=6 format=3 uid="uid://ctiuxgpto60ef"]
 
 [ext_resource type="PackedScene" uid="uid://bwohc2caolnm1" path="res://objects/player.tscn" id="1_35u52"]
 [ext_resource type="PackedScene" uid="uid://b6ql8rp4uqwm2" path="res://objects/interactables/hiding_place.tscn" id="2_eyk38"]
+[ext_resource type="PackedScene" uid="uid://bxe0raafct837" path="res://objects/interactables/biteable/biteable.tscn" id="3_onje1"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_t2cpa"]
 size = Vector2(600, 80)
@@ -27,3 +28,6 @@ shape = SubResource("RectangleShape2D_onyd5")
 
 [node name="hiding_place" parent="." instance=ExtResource("2_eyk38")]
 position = Vector2(608, 600)
+
+[node name="bitable" parent="." instance=ExtResource("3_onje1")]
+position = Vector2(1056, 600)
