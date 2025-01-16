@@ -13,12 +13,21 @@ class_name Player
 @onready var interact_area = $interactable_area
 @onready var sprite = $sprite
 
+var crow : Crow
+
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 var speed := 0
 var dir := Vector2.RIGHT
 var is_hidden := false
 var can_jump := true
+var crow_summoned := false
+
+func _ready():
+	crow = load("res://objects/crow.tscn").instantiate()
+	self.add_child(crow)
+	crow.visible = crow_summoned
+	crow.start(self)
 
 func _process(_delta):
 	dir = Vector2(Input.get_axis("move_left", "move_right"), Input.get_axis("look_down", "look_up")) #get direction for current frame
@@ -60,12 +69,24 @@ func try_move(delta):
 	move_and_slide()
 
 func try_interaction():
-	if Input.is_action_just_pressed("interact") and interact_area.has_overlapping_areas():
-		interact_area.get_overlapping_areas()[0].interact(self)
-		self.velocity = Vector2.ZERO
-	elif Input.is_action_just_pressed("bite") and interact_area.has_overlapping_areas():
-		interact_area.get_overlapping_areas()[0].bite(self)
-		self.velocity = Vector2.ZERO
+	if Input.is_action_just_pressed("toggle_crow"):
+		if crow_summoned:
+			crow.visible = false
+			crow_summoned = false
+		else:
+			crow.visible = true
+			crow_summoned = true
+	
+	if crow_summoned:
+		if Input.is_action_just_pressed("interact"):
+			crow.fly_to(get_global_mouse_position())
+	else:
+		if Input.is_action_just_pressed("interact") and interact_area.has_overlapping_areas():
+			interact_area.get_overlapping_areas()[0].interact(self)
+			self.velocity = Vector2.ZERO
+		elif Input.is_action_just_pressed("bite") and interact_area.has_overlapping_areas():
+			interact_area.get_overlapping_areas()[0].bite(self)
+			self.velocity = Vector2.ZERO
 
 func try_attack():
 	if Input.is_action_just_pressed("attack"):

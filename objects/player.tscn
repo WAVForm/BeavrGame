@@ -513,3 +513,6 @@ input_pickable = false
 
 [node name="interactable_range" type="CollisionShape2D" parent="interactable_area"]
 shape = SubResource("CircleShape2D_5e6r6")
+
+[node name="crow_spot" type="Node2D" parent="."]
+position = Vector2(0, -48)

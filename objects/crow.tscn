@@ -1,0 +1,47 @@
+[gd_scene load_steps=7 format=3 uid="uid://c25hqfb1xboii"]
+
+[ext_resource type="Script" path="res://scripts/crow.gd" id="1_ro7n8"]
+[ext_resource type="Texture2D" uid="uid://qt60n136xycq" path="res://art/werc_crow/crow_fly0.png" id="2_but77"]
+[ext_resource type="Texture2D" uid="uid://dgmhge0uxfkwl" path="res://art/werc_crow/crrow_fly1.png" id="3_rbnnl"]
+[ext_resource type="Texture2D" uid="uid://hqc66bqcawev" path="res://art/werc_crow/crow_idle.png" id="4_qhy3f"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qlcbs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_but77")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rbnnl")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_qhy3f")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 1.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bvuq7"]
+radius = 192.167
+
+[node name="crow" type="Node2D"]
+script = ExtResource("1_ro7n8")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+z_index = 999
+sprite_frames = SubResource("SpriteFrames_qlcbs")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="search_area" type="Area2D" parent="."]
+collision_layer = 8192
+collision_mask = 0
+
+[node name="search_range" type="CollisionShape2D" parent="search_area"]
+shape = SubResource("CircleShape2D_bvuq7")
