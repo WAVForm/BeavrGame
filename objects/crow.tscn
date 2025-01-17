@@ -40,8 +40,11 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="search_area" type="Area2D" parent="."]
-collision_layer = 8192
-collision_mask = 0
+collision_layer = 0
+collision_mask = 8192
 
 [node name="search_range" type="CollisionShape2D" parent="search_area"]
 shape = SubResource("CircleShape2D_bvuq7")
+
+[node name="wait_timer" type="Timer" parent="."]
+one_shot = true

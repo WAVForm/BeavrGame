@@ -12,7 +12,7 @@ size = Vector2(64, 64)
 texture = SubResource("PlaceholderTexture2D_l8214")
 
 [node name="biting_area" type="Area2D" parent="."]
-collision_layer = 32768
+collision_layer = 16384
 collision_mask = 0
 script = ExtResource("1_w1say")
 

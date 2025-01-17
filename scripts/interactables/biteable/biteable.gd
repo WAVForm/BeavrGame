@@ -1,4 +1,4 @@
-extends Interactable
+extends CollisionObject2D
 
 class_name Biteable
 
